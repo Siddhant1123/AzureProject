@@ -1,0 +1,40 @@
+{
+	"name": "ds_json_dy_dev",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_datalake_dev",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"j_container": {
+				"type": "string"
+			},
+			"j_folder": {
+				"type": "string"
+			},
+			"j_file": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().j_file",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().j_folder",
+					"type": "Expression"
+				},
+				"fileSystem": {
+					"value": "@dataset().j_container",
+					"type": "Expression"
+				}
+			}
+		},
+		"schema": {}
+	}
+}
