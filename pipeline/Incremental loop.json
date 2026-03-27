@@ -320,13 +320,14 @@
 				}
 			},
 			{
-				"name": "Web1",
+				"name": "Alerts",
 				"type": "WebActivity",
 				"dependsOn": [
 					{
 						"activity": "ForEach1",
 						"dependencyConditions": [
-							"Failed"
+							"Failed",
+							"Succeeded"
 						]
 					}
 				],
@@ -337,7 +338,15 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"url": "https://prod-21.canadacentral.logic.azure.com:443/workflows/a55225d044c44bd69fad061ae8b25da4/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=pcu4HbQqm3e90JGY5QY-XoJrvs57KnXBBPnO_dkmUSE",
+					"body": {
+						"value": "{\n    \"pipeline_name\" : \"@{pipeline().Pipeline}\",\n    \"pipeline_ID\" : \"@{pipeline().RunId}\"\n}",
+						"type": "Expression"
+					}
+				}
 			}
 		],
 		"parameters": {
