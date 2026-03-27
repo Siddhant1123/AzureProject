@@ -1,0 +1,10 @@
+{
+	"name": "ls_datalake_dev",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://storageazureproject2297.dfs.core.windows.net/"
+		}
+	}
+}
